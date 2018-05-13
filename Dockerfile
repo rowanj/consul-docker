@@ -23,7 +23,8 @@ ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "/usr/local/bin/consul"]
 
 EXPOSE 8300/tcp 8301/tcp 8301/udp 8302/tcp 8302/udp 8500/tcp 8600/tcp 8600/udp
 
-VOLUME [/consul/config, /consul/data]
+VOLUME /consul/config
+VOLUME /consul/data
 
 COPY config /consul/config
 
