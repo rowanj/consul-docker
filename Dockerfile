@@ -7,8 +7,8 @@ RUN upx bin/consul
 
 FROM alpine:latest as dumb-init-builder
 RUN apk update
-RUN apk add git make bash musl-dev
-VOLUME [ "/build" ]
+RUN apk add git make bash gcc musl-dev
+WORKDIR /build
 RUN git clone https://github.com/Yelp/dumb-init.git
 WORKDIR /build/dumb-init
 RUN make
